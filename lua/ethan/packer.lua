@@ -54,7 +54,10 @@ use {
   run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
 }
 use 'mxsdev/nvim-dap-vscode-js'
-use 'feline-nvim/feline.nvim'
+use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
 use 'windwp/nvim-autopairs'
 use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 use('jose-elias-alvarez/null-ls.nvim')
