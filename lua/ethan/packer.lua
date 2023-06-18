@@ -48,6 +48,15 @@ use {
 }
 
 use 'mfussenegger/nvim-dap'
+use {
+  "microsoft/vscode-js-debug",
+  opt = true,
+  run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+}
+use 'mxsdev/nvim-dap-vscode-js'
 use 'feline-nvim/feline.nvim'
 use 'windwp/nvim-autopairs'
+use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+use('jose-elias-alvarez/null-ls.nvim')
+use('MunifTanjim/prettier.nvim')
   end)

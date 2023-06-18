@@ -6,6 +6,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
+  'lua',
 })
 
 -- Fix Undefined global 'vim'
@@ -54,7 +55,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 
-local capabilities = require('cmp_nvi_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lsp.setup( {
     capabilities = capabilities
