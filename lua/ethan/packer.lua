@@ -58,5 +58,4 @@ use 'feline-nvim/feline.nvim'
 use 'windwp/nvim-autopairs'
 use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 use('jose-elias-alvarez/null-ls.nvim')
-use('MunifTanjim/prettier.nvim')
   end)
