@@ -17,7 +17,6 @@ local plugins = {
     version = '0.1.1',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-
   'navarasu/onedark.nvim',
   {
     'nvim-treesitter/nvim-treesitter',
@@ -29,20 +28,11 @@ local plugins = {
   {
     'tpope/vim-fugitive'
   },
-
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
     lazy = true,
-    config = function()
-      -- This is where you modify the settings for lsp-zero
-      -- Note: autocompletion settings will not take effect
-
-      require('lsp-zero.settings').preset({})
-    end
   },
-
-  -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -50,9 +40,6 @@ local plugins = {
       { 'L3MON4D3/LuaSnip' },
     },
   },
-
-  -- LSP
-
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -67,7 +54,6 @@ local plugins = {
     },
   },
 
-  -- snippets
   {
     'L3MON4D3/LuaSnip',
     dependencies = {
@@ -75,18 +61,13 @@ local plugins = {
       "rafamadriz/friendly-snippets",
     },
   },
-
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
   },
-
-  -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
   },
-
-  -- LSP
   {
     'neovim/nvim-lspconfig',
   },
@@ -94,30 +75,24 @@ local plugins = {
     'akinsho/toggleterm.nvim',
     version = '*',
   },
-
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
-
   {
     'mfussenegger/nvim-dap',
   },
-
   {
     'microsoft/vscode-js-debug',
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
   },
-
   {
     'mxsdev/nvim-dap-vscode-js',
   },
-
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
   },
-
   {
     'windwp/nvim-autopairs',
   },
@@ -127,6 +102,10 @@ local plugins = {
   },
   {
     'jose-elias-alvarez/null-ls.nvim',
+  },
+
+  {
+    'MunifTanjim/prettier.nvim',
   },
 
   {
