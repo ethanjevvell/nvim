@@ -16,17 +16,15 @@ local plugins = {
     'nvim-telescope/telescope.nvim',
     version = '0.1.1',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    lazy = true,
   },
 
   'navarasu/onedark.nvim',
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    lazy = true,
   },
   {
-    'theprimeagen/harpoon', lazy = true
+    'theprimeagen/harpoon'
   },
   {
     'tpope/vim-fugitive'
@@ -34,72 +32,109 @@ local plugins = {
 
   {
     'VonHeikemen/lsp-zero.nvim',
-    version = 'v2.x',
+    branch = 'v2.x',
+    lazy = true,
+    config = function()
+      -- This is where you modify the settings for lsp-zero
+      -- Note: autocompletion settings will not take effect
+
+      require('lsp-zero.settings').preset({})
+    end
+  },
+
+  -- Autocompletion
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
     dependencies = {
-      'neovim/nvim-lspconfig',
-      'williamboman/mason-lspconfig.nvim',
-      'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip'
+      { 'L3MON4D3/LuaSnip' },
     },
-    lazy = true
+  },
+
+  -- LSP
+
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'williamboman/mason-lspconfig.nvim' },
+      {
+        'williamboman/mason.nvim',
+        build = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+    },
+  },
+
+  -- snippets
+  {
+    'L3MON4D3/LuaSnip',
+    dependencies = {
+      'saadparwaiz1/cmp_luasnip',
+      "rafamadriz/friendly-snippets",
+    },
   },
 
   {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+  },
+
+  -- Autocompletion
+  {
+    'hrsh7th/nvim-cmp',
+  },
+
+  -- LSP
+  {
+    'neovim/nvim-lspconfig',
+  },
+  {
     'akinsho/toggleterm.nvim',
     version = '*',
-    lazy = true
   },
 
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    lazy = true
   },
 
   {
     'mfussenegger/nvim-dap',
-    lazy = true
   },
 
   {
     'microsoft/vscode-js-debug',
-    lazy = true,
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
   },
 
   {
     'mxsdev/nvim-dap-vscode-js',
-    lazy = true
   },
 
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = {'nvim-tree/nvim-web-devicons', lazy = true }
+    dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
   },
 
   {
     'windwp/nvim-autopairs',
-    lazy = true
   },
   {
     'rcarriga/nvim-dap-ui',
     dependencies = { 'mfussenegger/nvim-dap' },
-    lazy = true
   },
   {
     'jose-elias-alvarez/null-ls.nvim',
-    lazy = true
   },
 
   {
     'numToStr/Comment.nvim',
-    lazy = true
   },
 
   {
     'folke/zen-mode.nvim',
-    lazy = true
   }
 }
 
