@@ -61,4 +61,11 @@ use {
 use 'windwp/nvim-autopairs'
 use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 use('jose-elias-alvarez/null-ls.nvim')
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
+use('folke/zen-mode.nvim')
   end)
