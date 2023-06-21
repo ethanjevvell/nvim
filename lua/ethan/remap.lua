@@ -1,14 +1,7 @@
-
 -- Set the leader key to space
 vim.g.mapleader = " "
-
+-- test
 -- Normal mode: Execute Ex command with space + pv
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
--- Set the leader key to space again, seems redundant
-vim.g.mapleader = " "
-
--- Normal mode: Execute Ex command with space + pv, this mapping appears twice, might be an error
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Visual mode: Move selected lines one line down with J
@@ -42,7 +35,7 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- Normal mode: Format the buffer with space + f
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", '<cmd>:Prettier<CR>')
 
 -- Normal mode: Go to the next error with Ctrl+k
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -64,3 +57,18 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Normal mode: Swap ; for :
 vim.keymap.set("n", ";", ":", {silent = true})
+
+-- Normal mode: Highlight the entire current buffer
+vim.api.nvim_set_keymap('n', '<C-a>', ':lua vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("ggVG", true, true, true), "n", true)<CR>', {noremap = true, silent = true})
+
+-- Normal mode: Paste from system clipboard
+vim.keymap.set("n", '"p', '"+p', {silent = true})
+
+-- Normal mode: Copy to system clipboard
+vim.keymap.set("v", '"y', '"+y', { silent = true })
+
+-- Always save every open buffer with :w
+vim.api.nvim_set_keymap("c", "w<CR>", "wa<CR>", { noremap = false})
+
+-- Always save all buffers before any quit command
+vim.cmd("autocmd QuitPre * :wa")
