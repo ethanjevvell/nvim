@@ -1,6 +1,5 @@
 require("toggleterm").setup {
   size = 20,
-  open_mapping = [[<c-\>]],
   shade_filetypes = {},
   shade_terminals = true,
   hide_numbers = true,
@@ -10,7 +9,6 @@ require("toggleterm").setup {
   direction = "horizontal",
   shell = vim.o.shell,
 }
-
 
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
@@ -24,3 +22,8 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+vim.api.nvim_set_keymap("n", "<C-z>7", ":1ToggleTerm size=20 direction=horizontal<CR>", {silent = true})
+vim.api.nvim_set_keymap("n", "<C-z>8", ":2ToggleTerm size=20 direction=horizontal<CR>", {silent = true})
+vim.api.nvim_set_keymap("n", "<C-z>9", ":3ToggleTerm size=20 direction=horizontal<CR>", {silent = true})
+vim.api.nvim_set_keymap("n", "<C-z>0", ":4ToggleTerm size=20 direction=horizontal<CR>", {silent = true})
