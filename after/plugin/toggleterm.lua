@@ -27,3 +27,13 @@ vim.api.nvim_set_keymap("n", "<C-z>7", ":1ToggleTerm size=20 direction=horizonta
 vim.api.nvim_set_keymap("n", "<C-z>8", ":2ToggleTerm size=20 direction=horizontal<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<C-z>9", ":3ToggleTerm size=20 direction=horizontal<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<C-z>0", ":4ToggleTerm size=20 direction=horizontal<CR>", {silent = true})
+
+
+local Terminal = require('toggleterm.terminal').Terminal
+local htop = Terminal:new({ cmd = "htop", hidden = true, direction = "float" })
+
+function _HTOP_TOGGLE()
+  htop:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<C-z>h", "<cmd>lua _HTOP_TOGGLE()<CR>", {silent = true})
