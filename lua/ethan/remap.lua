@@ -1,5 +1,4 @@
 
-local builtin = require('telescope.builtin')
 local keymap = vim.keymap.set;
 local opts = { noremap = true, silent = true }
 
@@ -90,7 +89,3 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
--- Grep
-vim.keymap.set('n', '<leader>g', function ()
-  builtin.grep_string({ search = vim.fn.input("Grep > ")})
-end)
