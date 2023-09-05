@@ -17,11 +17,14 @@ local plugins = {
     version = '0.1.1',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
+
+{ "ellisonleao/gruvbox.nvim", priority = 1000 },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
   },
+  { 'navarasu/onedark.nvim'},
  {
     'theprimeagen/harpoon'
   },
@@ -114,9 +117,12 @@ local plugins = {
 
   {
     'folke/zen-mode.nvim',
-  }
+  },
+
+  { 'rose-pine/neovim', name = 'rose-pine' }
 }
 
 local opts = {}
 
 require("lazy").setup(plugins, opts)
+
