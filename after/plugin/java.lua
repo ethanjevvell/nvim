@@ -92,15 +92,20 @@ local function jdtls_on_attach(bufnr)
     enable_codelens(bufnr)
   end
 
-  -- The following mappings are based on the suggested usage of nvim-jdtls
-  -- https://github.com/mfussenegger/nvim-jdtls#usage
+  print(bufnr)
+end
+
+local function set_keymaps(bufnr)
   local opts = {buffer = bufnr}
   vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
-  vim.keymap.set('n', 'crv', "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
-  vim.keymap.set('x', 'crv', "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)
-  vim.keymap.set('n', 'crc', "<cmd>lua require('jdtls').extract_constant()<cr>", opts)
-  vim.keymap.set('x', 'crc', "<esc><cmd>lua require('jdtls').extract_constant(true)<cr>", opts)
-  vim.keymap.set('x', 'crm', "<esc><Cmd>lua require('jdtls').extract_method(true)<cr>", opts)
+  vim.keymap.set('n', 'ev', "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
+  vim.keymap.set('x', 'ev', "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)
+  vim.keymap.set('n', 'ec', "<cmd>lua require('jdtls').extract_constant()<cr>", opts)
+  vim.keymap.set('x', 'ec', "<esc><cmd>lua require('jdtls').extract_constant(true)<cr>", opts)
+  vim.keymap.set('x', 'em', "<esc><Cmd>lua require('jdtls').extract_method(true)<cr>", opts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts, "Code actions")
+  vim.keymap.set('v', '<leader>ca', "<ESC><CMD>lua vim.lsp.buf.code_action()<CR>",
+  { noremap=true, silent=true, buffer=bufnr, desc = "Code actions" })
 end
 
 local function jdtls_setup(event)
@@ -172,11 +177,11 @@ local function jdtls_setup(event)
       referencesCodeLens = {
         enabled = true,
       },
-      -- inlayHints = {
-      --   parameterNames = {
-      --     enabled = 'all' -- literals, all, none
-      --   }
-      -- },
+      inlayHints = {
+        parameterNames = {
+          enabled = 'all' -- literals, all, none
+        }
+      },
       format = {
         enabled = true,
         -- settings = {
@@ -231,6 +236,8 @@ local function jdtls_setup(event)
       bundles = path.bundles,
     },
   })
+
+  set_keymaps(event.bufnr)
 end
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -239,3 +246,4 @@ vim.api.nvim_create_autocmd('FileType', {
   desc = 'Setup jdtls',
   callback = jdtls_setup,
 })
+
