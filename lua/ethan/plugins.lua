@@ -25,8 +25,11 @@ local plugins = {
     build = ':TSUpdate',
   },
   { 'navarasu/onedark.nvim'},
- {
+  {
     'theprimeagen/harpoon'
+  },
+  {
+    'mfussenegger/nvim-jdtls',
   },
   {
     'github/copilot.vim'

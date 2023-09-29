@@ -7,7 +7,6 @@ lsp.ensure_installed({
   'rust_analyzer',
   'lua_ls',
   'eslint',
-  'java'
 })
 
 -- format spacing config
@@ -18,7 +17,6 @@ vim.opt.tabstop = 2      -- Number of spaces a tab counts for
 
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
-
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -63,6 +61,8 @@ end)
 
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+lsp.skip_server_setup({'jdtls'})
 
 lsp.setup({
   capabilities = capabilities
