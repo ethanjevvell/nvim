@@ -29,6 +29,9 @@ local plugins = {
     'theprimeagen/harpoon'
   },
   {
+    'github/copilot.vim'
+  },
+  {
     'tpope/vim-fugitive'
   },
   {

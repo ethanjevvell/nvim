@@ -6,7 +6,8 @@ lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
   'lua_ls',
-  'eslint'
+  'eslint',
+  'java'
 })
 
 -- format spacing config
