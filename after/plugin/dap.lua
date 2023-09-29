@@ -9,3 +9,13 @@ vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
 vim.keymap.set('n', '<leader>B', function()
   require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))
 end)
+
+dap.configurations.java = {
+  {
+    type = 'java';
+    request = 'launch';
+    name = "Debug (Attach) - Remote";
+    hostName = "127.0.0.1";
+    port = 5005;
+  },
+}

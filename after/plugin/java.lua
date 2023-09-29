@@ -15,7 +15,7 @@ local features = {
 
   -- change this to `true` if you have `nvim-dap`,
   -- `java-test` and `java-debug-adapter` installed
-  debugger = false,
+  debugger = true,
 }
 
 local function get_jdtls_paths()
@@ -39,7 +39,9 @@ local function get_jdtls_paths()
     path.platform_config = jdtls_install .. '/config_win'
   end
 
-  path.bundles = {}
+  path.bundles = {
+    vim.fn.glob(vim.fn.stdpath("config") .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1)
+  }
 
   ---
   -- Useful if you're starting jdtls with a Java version that's 
@@ -56,7 +58,7 @@ local function get_jdtls_paths()
       },
       {
           name = "JavaSE-21",
-          path = "~/.jdks/openjdk-21"
+          path = "/home/ethan/.jdks/openjdk-21/"
       }
   }
 
