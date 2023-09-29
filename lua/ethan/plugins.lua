@@ -37,6 +37,7 @@ local plugins = {
   {
     'tpope/vim-fugitive'
   },
+  {'nvim-telescope/telescope-ui-select.nvim'},
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
