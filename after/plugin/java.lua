@@ -54,6 +54,10 @@ local function get_jdtls_paths()
           name = "JavaSE-17",
           path = "/usr/lib/jvm/java-17-openjdk-amd64/",
       },
+      {
+          name = "JavaSE-21",
+          path = "~/.jdks/openjdk-21"
+      }
   }
 
   cache_vars.paths = path
