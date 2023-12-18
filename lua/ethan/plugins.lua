@@ -44,13 +44,6 @@ local plugins = {
     lazy = true,
   },
   {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    dependencies = {
-      { 'L3MON4D3/LuaSnip' },
-    },
-  },
-  {
     'neovim/nvim-lspconfig',
     dependencies = {
       { 'hrsh7th/cmp-nvim-lsp' },
@@ -64,13 +57,6 @@ local plugins = {
     },
   },
 
-  {
-    'L3MON4D3/LuaSnip',
-    dependencies = {
-      'saadparwaiz1/cmp_luasnip',
-      "rafamadriz/friendly-snippets",
-    },
-  },
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
